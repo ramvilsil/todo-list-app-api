@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", builder =>
     {
-        builder.WithOrigins("http://localhost:3000")
+        builder.WithOrigins("https://todo-list-app-ui.vercel.app")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();

@@ -46,8 +46,11 @@ public class TodoItemController : ControllerBase
             {
                 HttpOnly = true,
                 IsEssential = true,
-                SameSite = SameSiteMode.Lax,
-                Expires = DateTime.UtcNow.AddDays(30)
+                SameSite = SameSiteMode.None,
+                Expires = DateTime.UtcNow.AddDays(30),
+                Secure = true,
+                Domain = "todo-list-app-api.azurewebsites.net",
+                Path = "/"
             });
         }
 
