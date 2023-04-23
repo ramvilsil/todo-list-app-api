@@ -26,6 +26,7 @@ namespace Api.Controllers
         [HttpGet(Name = "GetTodoList")]
         public ActionResult<TodoList> Get()
         {
+
             if (_httpContextAccessor.HttpContext.Request.Cookies.TryGetValue("todoListId", out string todoListId))
             {
                 todoListId = _httpContextAccessor.HttpContext.Request.Cookies["todoListId"];

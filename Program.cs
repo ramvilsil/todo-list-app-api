@@ -15,9 +15,9 @@ builder.Services.AddControllers();
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowOrigin", builder =>
+    options.AddPolicy("AllowOrigin", policyBuilder =>
     {
-        builder.WithOrigins("https://todo-list-app-ui.vercel.app")
+        policyBuilder.WithOrigins("https://todo-list-app-ui.vercel.app")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
