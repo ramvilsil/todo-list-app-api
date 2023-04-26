@@ -41,10 +41,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseRouting();
-
-// Apply CORS policy to all requests
 app.UseCors("AllowOrigin");
+
+app.UseRouting();
 
 app.UseAuthorization();
 

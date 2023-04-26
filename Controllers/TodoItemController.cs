@@ -42,16 +42,17 @@ public class TodoItemController : ControllerBase
         {
             todoList = await _todoListService.CreateAsync();
 
-            _httpContextAccessor.HttpContext.Response.Cookies.Append("todoListId", todoList.Id.ToString(), new CookieOptions()
+            var todoListCookieOptions = new CookieOptions()
             {
                 HttpOnly = true,
                 IsEssential = true,
                 SameSite = SameSiteMode.None,
-                Expires = DateTime.UtcNow.AddDays(30),
+                Expires = DateTime.UtcNow.AddDays(7),
                 Secure = true,
-                Domain = "todo-list-app-api.azurewebsites.net",
                 Path = "/"
-            });
+            };
+
+            _httpContextAccessor.HttpContext.Response.Cookies.Append("todoListId", todoList.Id.ToString(), todoListCookieOptions);
         }
 
         await _todoItemService.CreateAsync(todoList.Id, todoItemRequest.TodoItemName);
